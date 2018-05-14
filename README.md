@@ -59,7 +59,7 @@ info : PackageReference for package 'Consul' version '0.7.2.4' added to file '/U
 ## Update dependencies
 
 ```
-Mentem: ~/Projects/dotnet/shipping                                                                                                                            +[git:master]
+Mentem: ~/Projects/dotnet/shipping
 → dotnet restore
   Restoring packages for /Users/Arnauld/Projects/dotnet/shipping/shipping.csproj...
   Restore completed in 83,03 ms for /Users/Arnauld/Projects/dotnet/shipping/shipping.csproj.
@@ -69,16 +69,17 @@ Mentem: ~/Projects/dotnet/shipping                                              
 ## Connect to consul and start app
 
 ```
-Mentem: ~/Projects/dotnet/shipping                                                                                                                            +[git:master]
+Mentem: ~/Projects/dotnet/shipping
 → dotnet run
-Service: 172.19.0.75432: System.String[]
-Service: 172.19.0.35672: System.String[]
-Service: 172.19.0.28200: System.String[]
-Service: 172.19.0.88125: System.String[]
+Service 'postgres': <172.19.0.7:5432>
+Service 'rabbitmq': <172.19.0.3:5672>
+Service 'vault': <172.19.0.2:8200>
+Service 'telegraf-statsd': <172.19.0.8:8125>
 Hosting environment: Production
 Content root path: /Users/Arnauld/Projects/dotnet/shipping
 Now listening on: http://localhost:5000
 Application started. Press Ctrl+C to shut down.
+^CApplication is shutting down...
 ```
 
 # Resources

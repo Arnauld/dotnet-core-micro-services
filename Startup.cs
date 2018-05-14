@@ -45,7 +45,7 @@ namespace shipping
             var services = consulClient.Agent.Services().Result.Response;
             foreach (var service in services)
             {
-                Console.WriteLine($"Service: {service.Value.Address}{service.Value.Port}: {service.Value.Tags}");
+                Console.WriteLine($"Service '{service.Value.Service}': <{service.Value.Address}:{service.Value.Port}>");
             }
         }
     }

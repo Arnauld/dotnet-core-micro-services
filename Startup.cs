@@ -1,4 +1,6 @@
 ﻿using System;
+using Consul;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -35,6 +37,16 @@ namespace shipping
             }
 
             app.UseMvc();
+            LookupDatabaseFromConsul();
+        }
+
+        public void LookupDatabaseFromConsul() {
+            var consulClient = new ConsulClient(c => c.Address = new Uri("http://localhost:8500"));
+            var services = consulClient.Agent.Services().Result.Response;
+            foreach (var service in services)
+            {
+                Console.WriteLine($"Service: {service.Value.Address}{service.Value.Port}: {service.Value.Tags}");
+            }
         }
     }
 }

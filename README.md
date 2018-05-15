@@ -120,8 +120,16 @@ In the second terminal
 {"Id":"12345","Recipient":"carmen@mccall.um"}%
 ```
 
+## Database & ORM
+
+```
+→ dotnet add shipping package Npgsql
+→ dotnet add shipping package Dapper
+```
+
 # Resources
 
 * [Building a Secure Containerized Microservice With .NET Core](https://dzone.com/articles/building-a-secure-containerized-microservice-with)
 * [Getting started with .NET Core on macOS](https://docs.microsoft.com/en-us/dotnet/core/tutorials/using-on-macos)
 * [Using Consul for Service Discovery with ASP.NET Core](https://cecilphillip.com/using-consul-for-service-discovery-with-asp-net-core/)
+* [PostgreSQL and Dapper in .Net Core – Part 1](https://dotnetcorecentral.com/blog/postgresql-and-dapper-in-net-core-part-1/)

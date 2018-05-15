@@ -82,6 +82,14 @@ Application started. Press Ctrl+C to shut down.
 ^CApplication is shutting down...
 ```
 
+## Add logger
+
+```
+Mentem: ~/Projects/dotnet
+→ dotnet add shipping package Microsoft.Extensions.Logging.Console
+→ dotnet add shipping package Microsoft.Extensions.Logging
+```
+
 # Resources
 
 * [Building a Secure Containerized Microservice With .NET Core](https://dzone.com/articles/building-a-secure-containerized-microservice-with)

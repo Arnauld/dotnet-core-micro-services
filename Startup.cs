@@ -15,12 +15,14 @@ namespace shipping
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, ILogger<Startup> logger)
         {
             Configuration = configuration;
+            Logger = logger;
         }
 
         public IConfiguration Configuration { get; }
+        public ILogger Logger { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -45,7 +47,8 @@ namespace shipping
             var services = consulClient.Agent.Services().Result.Response;
             foreach (var service in services)
             {
-                Console.WriteLine($"Service '{service.Value.Service}': <{service.Value.Address}:{service.Value.Port}>");
+                Logger.LogInformation("Service '{SERVICE}': <{ADDRESS}:{PORT}>", service.Value.Service, service.Value.Address, service.Value.Port);
+                Console.WriteLine($"C: Service '{service.Value.Service}': <{service.Value.Address}:{service.Value.Port}>");
             }
         }
     }

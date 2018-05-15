@@ -48,7 +48,7 @@ namespace shipping
             foreach (var service in services)
             {
                 Logger.LogInformation("Service '{SERVICE}': <{ADDRESS}:{PORT}>", service.Value.Service, service.Value.Address, service.Value.Port);
-                Console.WriteLine($"C: Service '{service.Value.Service}': <{service.Value.Address}:{service.Value.Port}>");
+                //Console.WriteLine($"C: Service '{service.Value.Service}': <{service.Value.Address}:{service.Value.Port}>");
             }
         }
     }

@@ -90,6 +90,36 @@ Mentem: ~/Projects/dotnet
 → dotnet add shipping package Microsoft.Extensions.Logging
 ```
 
+## Add 
+
+
+## HTTP query
+
+In the first terminal
+
+```
+→ dotnet run
+info: shipping.Startup[0]
+      Service 'postgres': <172.19.0.7:5432>
+info: shipping.Startup[0]
+      Service 'rabbitmq': <172.19.0.3:5672>
+info: shipping.Startup[0]
+      Service 'vault': <172.19.0.2:8200>
+info: shipping.Startup[0]
+      Service 'telegraf-statsd': <172.19.0.8:8125>
+Hosting environment: Production
+Content root path: /Users/Arnauld/Projects/dotnet/shipping
+Now listening on: http://localhost:5000
+Application started. Press Ctrl+C to shut down.
+```
+
+In the second terminal
+
+```
+→ curl -X GET http://localhost:5000/api/shipping/12345
+{"Id":"12345","Recipient":"carmen@mccall.um"}%
+```
+
 # Resources
 
 * [Building a Secure Containerized Microservice With .NET Core](https://dzone.com/articles/building-a-secure-containerized-microservice-with)

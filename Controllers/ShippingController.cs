@@ -10,15 +10,21 @@ namespace shipping.Controllers
     [Route("api/[controller]")]
     public class ShippingController : Controller
     {
+        public ShippingController(ShippingService shippingService) {
+            ShippingService = shippingService;
+        }
+
+        public ShippingService ShippingService { get; }
+
         // GET api/values/5
         [HttpGet("{id}")]
         public IActionResult Get(string id)
         {
             if(id != null) {
-                DeliveryOrderDto order = new DeliveryOrderDto();
-                order.Id = id;
-                order.Recipient = "carmen@mccall.um";
-                return Ok(order);
+                DeliveryOrderDto order = ShippingService.deliveryOrder(id);
+                if(order != null) {
+                    return Ok(order);
+                }
             }
             return BadRequest();
         }

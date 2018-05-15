@@ -27,6 +27,8 @@ namespace shipping
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<ServiceDiscovery>();
+            services.AddTransient<ShippingService>();
             services.AddMvc();
         }
 
@@ -39,17 +41,7 @@ namespace shipping
             }
 
             app.UseMvc();
-            LookupDatabaseFromConsul();
         }
 
-        public void LookupDatabaseFromConsul() {
-            var consulClient = new ConsulClient(c => c.Address = new Uri("http://localhost:8500"));
-            var services = consulClient.Agent.Services().Result.Response;
-            foreach (var service in services)
-            {
-                Logger.LogInformation("Service '{SERVICE}': <{ADDRESS}:{PORT}>", service.Value.Service, service.Value.Address, service.Value.Port);
-                //Console.WriteLine($"C: Service '{service.Value.Service}': <{service.Value.Address}:{service.Value.Port}>");
-            }
-        }
     }
 }
